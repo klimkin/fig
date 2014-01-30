@@ -62,7 +62,7 @@ class Fig::Protocol::SSH
     scp("#{uri.host}:#{unescaped_path}", path) {
       |error_message|
 
-      raise Fig::NetworkError.new(
+      raise Fig::FileNotFoundError.new(
         "Unable to copy remote file to #{path}: #{error_message}",
       )
     }
